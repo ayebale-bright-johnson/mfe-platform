@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "noEmit": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vite-env.d.ts"],
+  "exclude": ["dist", "node_modules"],
+  "references": [
+    { "path": "../auth-contract" },
+    { "path": "../auth-shell-provider" },
+    { "path": "../auth-mfe-consumer" },
+    { "path": "../federation-config" }
+  ]
+}

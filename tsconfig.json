@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/auth-contract" },
+    { "path": "packages/federation-config" },
+    { "path": "packages/auth-shell-provider" },
+    { "path": "packages/auth-mfe-consumer" },
+    { "path": "packages/shell-app" },
+    { "path": "packages/remote-orders" },
+    { "path": "packages/remote-settings" }
+  ]
+}

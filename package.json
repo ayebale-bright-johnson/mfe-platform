@@ -1,0 +1,56 @@
+{
+  "name": "mfe-platform",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=packages/shell-app & npm run dev --workspace=packages/remote-orders & npm run dev --workspace=packages/remote-settings",
+    "dev:shell": "npm run dev --workspace=packages/shell-app",
+    "dev:orders": "npm run dev --workspace=packages/remote-orders",
+    "dev:settings": "npm run dev --workspace=packages/remote-settings",
+    "build:libs": "npm run build --workspace=packages/auth-contract && npm run build --workspace=packages/federation-config && npm run build --workspace=packages/auth-shell-provider && npm run build --workspace=packages/auth-mfe-consumer",
+    "build:apps": "npm run build --workspace=packages/shell-app & npm run build --workspace=packages/remote-orders & npm run build --workspace=packages/remote-settings",
+    "build": "npm run build:libs && npm run build:apps",
+    "preview": "npm run preview --workspace=packages/shell-app & npm run preview --workspace=packages/remote-orders & npm run preview --workspace=packages/remote-settings",
+    "typecheck": "tsc --build",
+    "typecheck:watch": "tsc --build --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:auth-contract": "npm test --workspace=packages/auth-contract",
+    "test:auth-shell": "npm test --workspace=packages/auth-shell-provider",
+    "test:auth-consumer": "npm test --workspace=packages/auth-mfe-consumer",
+    "test:federation": "npm test --workspace=packages/federation-config",
+    "test:shell-app": "npm test --workspace=packages/shell-app",
+    "test:orders": "npm test --workspace=packages/remote-orders",
+    "test:settings": "npm test --workspace=packages/remote-settings",
+    "clean": "npm run clean --workspaces --if-present && rm -rf node_modules",
+    "check": "npm run typecheck && npm run lint && npm run test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.12.0",
+    "jsdom": "^25.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^2.1.8"
+  }
+}
